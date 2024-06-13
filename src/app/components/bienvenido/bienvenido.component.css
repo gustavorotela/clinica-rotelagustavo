@@ -1,0 +1,12 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+  
+  .custom-register-button {
+    background-color: #4caf50; /* Green color */
+    color: white;
+  }
+  
+  .custom-register-button:hover {
+    background-color: #45a049; /* Darker green */
+  }

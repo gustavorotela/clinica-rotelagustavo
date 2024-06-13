@@ -1,0 +1,10 @@
+<div class="relative h-screen w-screen bg-gray-200">
+    <mat-toolbar color="primary">
+      <span>Bienvenido</span>
+      <span class="spacer"></span>
+      <button mat-button (click)="toggleLogin()" class="mr-4">Login</button>
+      <button mat-button (click)="toggleRegister()" class="custom-register-button">Registro</button>
+    </mat-toolbar>
+    <app-login [isVisible]="showLogin"></app-login>
+    <app-registro [isVisible]="showRegister"></app-registro>
+  </div>

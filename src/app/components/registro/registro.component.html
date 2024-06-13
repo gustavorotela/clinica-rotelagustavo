@@ -1,0 +1,96 @@
+<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity" [@fade]="isVisible ? 'in' : 'out'">
+  <div class="bg-white p-8 rounded-lg shadow-lg max-w-screen-sm w-full max-h-[50vh] overflow-y-auto">
+    <mat-toolbar color="accent">
+      <span>Registro</span>
+    </mat-toolbar>
+    <mat-tab-group>
+      <mat-tab label="Pacientes">
+        <div class="max-h-[45vh] overflow-y-auto">
+          <form [formGroup]="patientForm" (ngSubmit)="onSubmitPatient()">
+            <mat-form-field class="w-full">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="nombre" required>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+              <mat-label>Apellido</mat-label>
+              <input matInput formControlName="apellido" required>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+              <mat-label>Edad</mat-label>
+              <input matInput type="number" formControlName="edad" required>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+              <mat-label>DNI</mat-label>
+              <input matInput formControlName="dni" required>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+              <mat-label>Obra Social</mat-label>
+              <input matInput formControlName="obraSocial" required>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+              <mat-label>Mail</mat-label>
+              <input matInput type="email" formControlName="email" required>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" required>
+            </mat-form-field>
+            <div class="mt-4">
+              <label for="image1">Imagen de perfil 1</label>
+              <input type="file" id="image1" (change)="onFileChange($event, 'image1')">
+            </div>
+            <div class="mt-4">
+              <label for="image2">Imagen de perfil 2</label>
+              <input type="file" id="image2" (change)="onFileChange($event, 'image2')">
+            </div>
+            <button mat-raised-button color="primary" class="w-full mt-6" type="submit">Registrar</button>
+          </form>
+        </div>
+      </mat-tab>
+      <mat-tab label="Especialistas">
+        <div class="max-h-[45vh] overflow-y-auto">
+          <form [formGroup]="specialistForm" (ngSubmit)="onSubmitSpecialist()">
+            <mat-form-field class="w-full">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="nombre" required>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+              <mat-label>Apellido</mat-label>
+              <input matInput formControlName="apellido" required>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+              <mat-label>Edad</mat-label>
+              <input matInput type="number" formControlName="edad" required>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+              <mat-label>DNI</mat-label>
+              <input matInput formControlName="dni" required>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+              <mat-label>Especialidad</mat-label>
+              <mat-select formControlName="especialidad" required>
+                <mat-option *ngFor="let specialty of specialties" [value]="specialty">
+                  {{specialty}}
+                </mat-option>
+              </mat-select>
+              <button mat-button type="button" (click)="addSpecialty()">Agregar Especialidad</button>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+              <mat-label>Mail</mat-label>
+              <input matInput type="email" formControlName="email" required>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" required>
+            </mat-form-field>
+            <div class="mt-4">
+              <label for="profileImage">Imagen de perfil</label>
+              <input type="file" id="profileImage" (change)="onFileChange($event, 'profileImage')">
+            </div>
+            <button mat-raised-button color="primary" class="w-full mt-6" type="submit">Registrar</button>
+          </form>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
